@@ -1,7 +1,4 @@
 Flask==2.2.1
-Flask-SQLAlchemy==2.5.1
-ChatterBot2==1.1.0a7
-spacy==3.5.2
 
 
 
