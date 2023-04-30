@@ -1,40 +1,38 @@
-# defina as possíveis perguntas e respostas do ChatBot
-perguntas = [
-    # 0
-    'Olá. Seja bem vindo ao chatbot do SiDi. Qual o código da vaga?',
-    # 1
-    'Encontrei a vaga no meu sistema. Você tem experiência na área desejada?',
-    # 2
-    'Você tem conhecimento do idioma inglês intermediário/avançado?',
-    # 3
-    'Você tem conhecimento em Python?',
-    # 4
-    'Qual é a sua profissão?',
-    # 5
-    'Qual é a sua cidade natal?',
-    # 6
-    'Qual é a sua cor favorita?'
-]
+perguntas_python = {
+    'boas vindas': 'Olá, sou o chatbot da SiDi. Seja bem vindo! Informe o código da vaga.',
+    'codigo da vaga': 'Encontrei a vaga. Você tem experiência na área desejada? Responda com Sim ou Não.',
+    'experiencia na area': 'Você tem conhecimento do idioma inglês intermediário/avançado? Responda com Sim ou Não.',
+    'conhecimento em ingles': 'Você tem conhecimento em Python? Responda com Sim ou Não.',
+    'conhecimento em Python': 'Qual seu nome?',
+    'nome': 'Qual é o seu email?',
+    'email': 'Qual sua formação?',
+    'formacao': 'Fale sobre quais tecnologias você possui conhecimentos.',
+    'tecnologias': 'Você quer confirmar a inscrição para essa vaga?',
+    'aviso': ''
+}
 
-perguntas_eliminatorias = [
-    # 0
-    'Você tem experiência na área desejada?',
-    # 1
-    'Você tem conhecimento do idioma inglês intermediário/avançado?'
-]
+respostas_aceitas = {
+    'experiencia na area': ['sim.', 'sim', 'sim!', 'si', 'sí'],
+    'conhecimento em ingles': ['sim.', 'sim', 'sim!', 'si', 'sí'],
+    'conhecimento em Python': ['sim.', 'sim', 'sim!', 'si', 'sí'],
+}
 
-resposta = [
-    1, 'a'
-]
+confirmacao_positiva = {
+    'aviso': ['sim.', 'sim', 'sim!', 'si', 'sí']
+}
 
-vaga_inexistente = [
-    'Código da vaga não existe. Por favor, verfique e informe novamente.'
-]
+despedida_eliminado = {
+    'texto': 'Esse conhecimento é obrigatório para essa vaga. Tente outras vagas disponíveis.'
+}
 
-despedida = [
-    'Esse conhecimento é obrigatório para essa vaga. Tente outras vagas disponíveis.'
-]
+desistencia = {
+    'texto': 'confirmado sua desistência da vaga.'
+}
 
-negativas = [
-    'não', 'nao'
-]
+inscricao_feita = {
+    'texto': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. :D'
+}
+
+vaga_nao_encontrada = {
+    'texto': 'Código da vaga não existe. Por favor, verifique e informe novamente.'
+}

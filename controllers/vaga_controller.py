@@ -3,7 +3,7 @@ import json
 from flask import Blueprint, Response, request
 
 from database.database import db
-from entities.models import Vaga
+from entities.vaga import Vaga
 
 vagas_bp = Blueprint('vagas', __name__, url_prefix='/vagas')
 
