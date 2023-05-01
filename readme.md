@@ -24,8 +24,6 @@ $ virtualenv venv
 $ venv/Scripts/activate
 ```
 
-####
-
 ```
 $ deactivate
 ```
