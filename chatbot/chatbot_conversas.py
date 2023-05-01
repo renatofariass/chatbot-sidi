@@ -1,13 +1,13 @@
 perguntas_python = {
     'boas vindas': 'Olá, sou o chatbot da SiDi. Seja bem vindo! Informe o código da vaga.',
-    'codigo da vaga': 'Encontrei a vaga. Você tem experiência na área desejada? Responda com Sim ou Não.',
-    'experiencia na area': 'Você tem conhecimento do idioma inglês intermediário/avançado? Responda com Sim ou Não.',
-    'conhecimento em ingles': 'Você tem conhecimento em Python? Responda com Sim ou Não.',
+    'codigo da vaga': "Encontrei a vaga. Você tem experiência na área desejada? Responda com 'Sim' ou 'Não'.",
+    'experiencia na area': "Você tem conhecimento do idioma inglês intermediário/avançado? Responda com 'Sim' ou 'Não'.",
+    'conhecimento em ingles': "Você tem conhecimento em Python? Responda com 'Sim' ou 'Não'.",
     'conhecimento em Python': 'Qual seu nome?',
     'nome': 'Qual é o seu email?',
     'email': 'Qual sua formação?',
     'formacao': 'Fale sobre quais tecnologias você possui conhecimentos.',
-    'tecnologias': 'Você quer confirmar a inscrição para essa vaga?',
+    'tecnologias': "Você quer confirmar a inscrição para essa vaga? Responda com 'Sim' ou 'Não'",
     'aviso': ''
 }
 
