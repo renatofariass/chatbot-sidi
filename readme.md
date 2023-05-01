@@ -64,8 +64,7 @@ Lista todas as vagas contidas no banco de dados. Ex de retorno:
 
 ### chatbot (/gupy/get_job_messages) [POST]
 <pre>
-Para iniciar a conversa com o chtatbot você precisa mandar
-uma mensagem qualquer. Ex:
+Para iniciar a conversa com o chtatbot você precisa mandar uma mensagem qualquer. Ex:
 {
     "candidato": "Olá!"
 }
