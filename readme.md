@@ -40,7 +40,7 @@ pip install -r requeriments.txt
 
 ## vaga_controller
 
-### Create (/vagas/create)
+### Criar vagas (/vagas/create) [POST]
 <pre>
 Cria vagas. Ex. de como criar uma vaga via requisicão post: 
 {
@@ -50,7 +50,7 @@ Cria vagas. Ex. de como criar uma vaga via requisicão post:
 }
 </pre>
 
-### Get (/vagas)
+### Listar todas as vagas (/vagas) [GET]
 <pre>
 Lista todas as vagas contidas no banco de dados. Ex de retorno:
 [
@@ -64,7 +64,7 @@ Lista todas as vagas contidas no banco de dados. Ex de retorno:
 
 ## bot_controller
 
-### chatbot (/gupy/get_job_messages)
+### chatbot (/gupy/get_job_messages) [POST]
 <pre>
 Para iniciar a conversa com o chtatbot você precisa mandar
 uma mensagem qualquer. Ex:
