@@ -19,11 +19,11 @@
 ``` 
 $ virtualenv venv
 ```
-
+ATIVAR:
 ```
 $ venv/Scripts/activate
 ```
-
+DESATIVAR:
 ```
 $ deactivate
 ```
