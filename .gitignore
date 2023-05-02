@@ -21,9 +21,10 @@ docs/_build/
 
 db.sqlite3
 *.sqlite3
-vagas.db
 *.db
 *vagas
+*.db-shm
+*db-wal
 
 # Coverage reports
 htmlcov/
