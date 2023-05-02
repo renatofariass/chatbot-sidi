@@ -27,7 +27,9 @@ def check_job_id(self):
     if vaga:
         return True
 
+# busca todas as vagas
 def listar_vagas():
     vagas = Vaga.query.all()
+    # transforma as vagas para o formato json
     vagas_dict = [vaga.to_dict() for vaga in vagas]
     return list(vagas_dict)

@@ -16,7 +16,7 @@ def find_all():
     response = Response(vagas_json, status=200, mimetype='application/json')
     return response
 
-
+# criar vagas
 @vagas_bp.route('/create', methods=['POST'])
 def create():
     try:

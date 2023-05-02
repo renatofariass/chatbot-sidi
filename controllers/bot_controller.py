@@ -7,7 +7,7 @@ from services.vaga_service import check_job_id
 
 chat_bp = Blueprint('chat', __name__, url_prefix='/gupy')
 
-
+# fluxo de mensagens do chatbot
 @chat_bp.route('/get_job_messages', methods=['POST'])
 def get_job_messages():
     global nome, email, formacao, tecnologias, job_id, pergunta
