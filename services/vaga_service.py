@@ -2,10 +2,6 @@ from sqlalchemy.exc import IntegrityError
 
 from database.database import db
 from entities.vaga import Vaga
-from sqlalchemy.exc import IntegrityError
-
-from database.database import db
-from entities.vaga import Vaga
 
 
 # cria uma vaga
@@ -19,13 +15,15 @@ def create_vaga(job_id, descricao_vaga, nivel_vaga):
     except Exception:
         raise ValueError("Erro ao criar vaga.")
 
+
 # busca uma vaga pelo job_id e retorna true caso exista
-def check_job_id(self):
-    vaga = Vaga.query.filter_by(job_id=self).first()
-    if not vaga:
-        return False
-    if vaga:
-        return True
+def check_job_id(id):
+    try:
+        vaga = Vaga.query.filter_by(job_id=id).first()
+        return vaga.to_dict()
+    except Exception:
+        raise ValueError("job_id '{}' não encontrado.".format(id))
+
 
 # busca todas as vagas
 def listar_vagas():

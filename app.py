@@ -1,6 +1,6 @@
 from flask import Flask
 
-from controllers import bot_controller, vaga_controller
+from controllers import bot_controller, vaga_controller, pergunta_controller
 from database.database import db
 
 app = Flask(__name__)
@@ -11,11 +11,13 @@ db.init_app(app)
 
 # Cria a tabela no banco de dados
 with app.app_context():
+    db.drop_all()
     db.create_all()
 
 # Registra as rotas das vagas
 app.register_blueprint(vaga_controller.vagas_bp)
 app.register_blueprint(bot_controller.chat_bp)
+app.register_blueprint(pergunta_controller.perguntas_bp)
 
 if __name__ == '__main__':
     app.run()

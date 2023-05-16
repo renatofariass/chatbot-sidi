@@ -2,11 +2,20 @@ import json
 
 from flask import Blueprint, Response, request, jsonify
 
-from database.database import db
-from entities.vaga import Vaga
-from services.vaga_service import create_vaga, listar_vagas
+from services.vaga_service import create_vaga, listar_vagas, check_job_id
 
 vagas_bp = Blueprint('vagas', __name__, url_prefix='/vagas')
+
+
+@vagas_bp.route('/<string:id>', methods=['GET'])
+def find_by_id(id):
+    try:
+        vagas_json = json.dumps(check_job_id(id), separators=(',', ':'))
+        response = Response(vagas_json, status=200, mimetype='application/json')
+    except Exception as e:
+        error_msg = {'mensagem': '{}'.format(str(e))}
+        return jsonify(error_msg), 404
+    return response
 
 
 # Lista todas as vagas
@@ -15,6 +24,7 @@ def find_all():
     vagas_json = json.dumps(listar_vagas(), separators=(',', ':'))
     response = Response(vagas_json, status=200, mimetype='application/json')
     return response
+
 
 # criar vagas
 @vagas_bp.route('/create', methods=['POST'])
