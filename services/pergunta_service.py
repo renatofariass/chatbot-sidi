@@ -3,16 +3,16 @@ from entities.pergunta import Pergunta
 from entities.vaga import Vaga
 
 
-def create_pergunta(pergunta, job_id):
+def create_pergunta(pergunta, eliminatoria, job_id):
     try:
         vaga = Vaga.query.filter_by(job_id=job_id).first()
         if not vaga:
             raise ValueError("A vaga com o job_id '{}' não existe.".format(job_id))
-        nova_pergunta = Pergunta(pergunta=pergunta, vaga=vaga)
+        nova_pergunta = Pergunta(pergunta=pergunta, eliminatoria=eliminatoria, vaga=vaga)
         db.session.add(nova_pergunta)
         db.session.commit()
     except Exception:
-        raise ValueError("Erro ao criar pergunta.")
+        raise ValueError("Erro ao criar pergunta. Id da vaga não existe.")
 
 
 def listar_perguntas(job_id):

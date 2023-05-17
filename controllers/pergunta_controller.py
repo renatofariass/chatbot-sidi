@@ -7,9 +7,14 @@ perguntas_bp = Blueprint('perguntas', __name__, url_prefix='/perguntas')
 
 @perguntas_bp.route('/create/<string:job_id>', methods=['POST'])
 def create(job_id):
-    pergunta = request.json['pergunta']
-    create_pergunta(pergunta = pergunta, job_id = job_id)
-    return jsonify({'mensagem': 'Pergunta criada com sucesso!'}), 201
+    try:
+        pergunta = request.json['pergunta']
+        eliminatoria = request.json['eliminatoria']
+        create_pergunta(pergunta=pergunta, eliminatoria=eliminatoria, job_id=job_id)
+        return jsonify({'mensagem': 'Pergunta criada com sucesso!'}), 201
+    except Exception as e:
+        return jsonify({'mensagem': str(e)}), 404
+
 
 
 @perguntas_bp.route('/vaga/<string:job_id>', methods=['GET'])
