@@ -83,22 +83,24 @@ def chatbot_endpoint():
     return jsonify({'chatbot': pergunta_seguinte})
 
 
+# Função para salvar as respostas no banco de dados
 def salvar_respostas(respostas, job_id):
-    # Função para salvar as respostas no banco de dados ou fazer o processamento necessário
     nome = respostas.get('Qual seu nome?')
     email = respostas.get('Qual é o seu email?')
+    linkedin = respostas.get('Qual o seu linkedin?')
+    github = respostas.get('Qual o seu github?')
     formacao = respostas.get('Qual sua formação?')
     tecnologias = respostas.get('Fale sobre quais tecnologias você possui conhecimentos.')
 
-    # Faça o processamento necessário com as respostas (por exemplo, salvar no banco de dados)
     try:
-        job_application(nome, email, formacao, tecnologias, job_id)
+        job_application(nome=nome, email=email, linkedin=linkedin, github=github, formacao=formacao,
+                        tecnologias=tecnologias, job_id=job_id)
     except Exception as e:
         return jsonify({'mensagem': str(e)}), 500
 
 
+# Função para verificar se a pergunta é classificada como eliminatória
 def questao_eliminatoria(job_id, pergunta):
-    # Função para verificar se a pergunta é classificada como eliminatória
     endpoint_url = f'http://127.0.0.1:5000/perguntas/vaga/{job_id}'
     response = requests.get(endpoint_url)
 
