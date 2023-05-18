@@ -11,7 +11,7 @@ db.init_app(app)
 
 # Cria a tabela no banco de dados
 with app.app_context():
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
 
 # Registra as rotas das vagas

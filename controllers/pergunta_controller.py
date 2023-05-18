@@ -16,7 +16,6 @@ def create(job_id):
         return jsonify({'mensagem': str(e)}), 404
 
 
-
 @perguntas_bp.route('/vaga/<string:job_id>', methods=['GET'])
 def find_perguntas(job_id):
     try:
