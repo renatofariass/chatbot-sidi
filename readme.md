@@ -8,7 +8,8 @@
  - pip install virtualenv
 
 4 - Crie uma virtual env chamada 'venv'
-- python virtualenv venv ou python3 -m venv nome_do_ambiente (linux)
+- python virtualenv venv 
+- python3 -m virtualenv venv (linux)
 
 5 - ative a virtual env
 
