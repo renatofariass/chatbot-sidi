@@ -52,7 +52,7 @@ def chatbot_endpoint():
             resposta_personalizada = "Infelizmente, não entendi o que você quis dizer. Pode ser que seu código de " \
                                      "vaga esteja inválido ou eu ainda não fui programado para entender essas palavras. " \
                                      "Tente novamente."
-            return jsonify({'chatbot': resposta_personalizada}), 400
+            return jsonify({'chatbot': resposta_personalizada})
 
     if resposta_candidato == '0':
         indice_pergunta = 0
