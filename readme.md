@@ -43,7 +43,7 @@ DESATIVAR:
 $ deactivate
 ```
 
-6 - Instale o Flask e o Flask-SQLAlchemy
+6 - Instale as dependências do projeto
 
 ``` 
 pip install -r requirements.txt
