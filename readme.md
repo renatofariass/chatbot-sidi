@@ -87,7 +87,7 @@ cria perguntas para uma determinada vaga. Ex. de como criar uma vaga via requisi
 }
 </pre>
 
-##### obs¹: Você pode botar quais perguntas quiser e indicar como eliminatória ou não. Porém, as seguintes perguntas são obrigatórias (insira elas exatamente como estão abaixo (um por vez)) para que as informações do candidato sejam salvas no banco de dados corretamente:
+#### obs¹: Você pode botar quais perguntas quiser e indicar como eliminatória ou não. Porém, as seguintes perguntas são obrigatórias (insira elas exatamente como estão abaixo (um por vez)) para que as informações do candidato sejam salvas no banco de dados corretamente:
 <pre>
 {
     "eliminatoria": false,
@@ -115,7 +115,7 @@ cria perguntas para uma determinada vaga. Ex. de como criar uma vaga via requisi
 }
 </pre>
 
-##### obs²: Na última pergunta inserida nas vagas (não é obrigatório), mas eu recomendo que você use uma pergunta eliminatória no final para o candidato confirmar sua inscrição. Ex:
+#### obs²: Na última pergunta inserida nas vagas (não é obrigatório), mas eu recomendo que você use uma pergunta eliminatória no final para o candidato confirmar sua inscrição. Ex:
 <pre>
 {
     "eliminatoria": true,
@@ -123,7 +123,7 @@ cria perguntas para uma determinada vaga. Ex. de como criar uma vaga via requisi
 }
 </pre>
 
-##### obs³: Nas perguntas eliminatórias o chatbot só reconhece "sim" ou "não" como "1" ou "0", qualquer outra resposta a não ser essa o chatbot irá repetir a pergunta até o candidato digitar "0" ou "1".
+#### obs³: Nas perguntas eliminatórias o chatbot só reconhece "sim" ou "não" como "1" ou "0", qualquer outra resposta a não ser essa o chatbot irá repetir a pergunta até o candidato digitar "0" ou "1".
 
 
 ### listar perguntas da vaga (/perguntas/vaga/{id_da_vaga}) [GET]
