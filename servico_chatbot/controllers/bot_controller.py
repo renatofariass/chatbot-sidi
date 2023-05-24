@@ -33,37 +33,46 @@ def chatbot_endpoint():
     if not perguntas:
         if resposta_candidato is not None:
             job_id = resposta_candidato  # Salva a resposta da primeira pergunta como job_id
-        success, perguntas = obter_perguntas(job_id)
-        if not success:
-            resposta_personalizada = "Infelizmente, não entendi o que você quis dizer. Pode ser que seu código de " \
-                                     "vaga esteja inválido ou eu ainda não fui programado para entender essas palavras. " \
+            perguntas = obter_perguntas(job_id)
+        if not perguntas:
+            resposta_personalizada = "Infelizmente, não entendi o que você quis dizer. Pode ser que você informou um " \
+                                     "código de vaga errado ou um comando que eu não estou programado para entender. " \
                                      "Tente novamente."
             return jsonify({'chatbot': resposta_personalizada})
 
     if resposta_candidato == '0':
         indice_pergunta = 0
-        respostas = {}
-        perguntas = []
+        respostas.clear()
+        perguntas.clear()
         return jsonify({'chatbot': 'Esse conhecimento é obrigatório para essa vaga. Tente outras vagas disponíveis!'})
 
+    # atualiza a pergunta atual
     pergunta_atual = perguntas[indice_pergunta]
 
     # Verifica se a pergunta atual é eliminatória
-    if questao_eliminatoria(job_id, pergunta_atual):
+    eliminatorias = questao_eliminatoria(job_id, pergunta_atual)
+    if eliminatorias is True:
         if resposta_candidato not in ['0', '1']:
-            indice_pergunta = 0
             return jsonify({'chatbot': pergunta_atual})
 
-    pergunta_atual_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
-    respostas[pergunta_atual_anterior] = resposta_candidato
-    indice_pergunta += 1
+    pergunta_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
+    respostas[pergunta_anterior] = resposta_candidato  # salva a resposta do candidato pra cada pergunta
+    indice_pergunta += 1  # atualiza o indice de pergunta
 
     if indice_pergunta >= len(perguntas):
-        inscricao_candidato(respostas, job_id)
-        indice_pergunta = 0
-        respostas = {}
-        perguntas = []
-        return jsonify({'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. :D'})
+        inscricao = inscricao_candidato(respostas, job_id)
+        if inscricao is True:
+            indice_pergunta = 0
+            respostas.clear()
+            perguntas.clear()
+            return jsonify(
+                {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. :D'})
+        else:
+            indice_pergunta = 0
+            respostas.clear()
+            perguntas.clear()
+            return jsonify(
+                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde'})
 
     pergunta_seguinte = perguntas[indice_pergunta]
     return jsonify({'chatbot': pergunta_seguinte})

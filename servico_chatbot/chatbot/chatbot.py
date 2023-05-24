@@ -2,27 +2,35 @@ from nltk.chat import Chat
 from nltk.chat.util import reflections
 
 padroes = [
-    (r"olá!|ola|oi|ei|eae|eai|menu",
-     ["Olá, seja bem vindo ao Chatbot SiDi. O que você quer fazer? opcao_a - Saber mais sobre o Chatbot SiDi | opcao_b "
-      "- Saber mais sobre a SiDi | opcao_c - Prosseguir para as perguntas"]),
+    (r"olá!|ola|oi|ei|eae|eai|!inicio|!ínicio",
+     ["Olá, seja bem vindo ao Chatbot SiDi. O que você quer fazer? Digite '!menu' para saber as opções."]),
 
-    (r"opcao_a", ["1a - Para que o chatbot SiDi serve? | 2a - Como funciona o ChatBot SiDi? c - Prosseguir para as "
-                  "perguntas"]),
+    (r"!menu", [
+        "!saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi | !perguntas - Prosseguir para as perguntas "
+        "| !ajuda - Como navegar pelo Chatbot SiDi"]),
 
-    (r"opcao_b|(.*)saber mais sobre a empre(.*)",
+    (r"!saber",
+     ["!serve - Para que o Chatbot SiDi serve? | !funciona - Como funciona o ChatBot SiDi? !perguntas - Prosseguir para as "
+      "perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
+
+    (r"!ajuda",
+     ["Eu funciono através de comandos começados com '!'. Se você quiser voltar para o Ínicio digite '!inicio', se "
+      "quiser voltar para o Menu digite '!menu' e se quiser seguir para as perguntas digite '!perguntas'"]),
+
+    (r"!sidi",
      ["Ótimo que você queira saber mais sobre a nossa empresa!! Segue o link: https://www.sidi.org.br/sobre-nos/"]),
 
-    (r"opcao_c", ["Ok, você quer ir para as perguntas. Por favor, informe o seu código de vaga."]),
+    (r"!perguntas", ["Ok, você quer ir para as perguntas. Por favor, informe o seu código de vaga. Ex. 123"]),
 
-    (r"1a", [
+    (r"!serve", [
         "Eu ajudo no recrutamento de candidatos, avaliando se os candidatos estão aptos para as "
         "vagas ou não, com base nas perguntas que meus criadores disponibilizaram para as vagas."]),
 
-    (r"2a", [
-        "Eu faço perguntas aos candidatos com base na vaga relacionada e se o usuário passar pela triagem das "
+    (r"!funciona", [
+        "Eu faço perguntas aos candidatos com base na vaga relacionada e se o candidato passar pela triagem das "
         "perguntas, eu salvo a inscrição dele no meu banco de dados."]),
 
-    (r"qual é o seu nome?", ["Meu nome é ChatBot Sidi"]),
+    (r"(.*)seu nome(.*)|(.*)teu nome(.*)", ["Meu nome é ChatBot Sidi"]),
 
     (r"como você está?|como voce esta?|como vai?", ["Estou bem, obrigado!", "Vou bem, obrigado!"]),
 
