@@ -1,5 +1,4 @@
-from database.database import db
-
+from servico_candidato.database.database import db
 
 class Candidato(db.Model):
     __tablename__ = 'candidatos'

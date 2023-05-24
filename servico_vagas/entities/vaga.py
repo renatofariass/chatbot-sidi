@@ -1,4 +1,4 @@
-from database.database import db
+from servico_vagas.database.database import db
 
 
 class Vaga(db.Model):

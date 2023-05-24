@@ -1,11 +1,11 @@
 from flask import Blueprint, request, jsonify
 
-from services.pergunta_service import create_pergunta, listar_perguntas
+from servico_vagas.services.pergunta_service import create_pergunta, listar_perguntas
 
 perguntas_bp = Blueprint('perguntas', __name__, url_prefix='/perguntas')
 
 
-@perguntas_bp.route('/create/<string:job_id>', methods=['POST'])
+@perguntas_bp.route('/create/vaga/<string:job_id>', methods=['POST'])
 def create(job_id):
     try:
         pergunta = request.json['pergunta']

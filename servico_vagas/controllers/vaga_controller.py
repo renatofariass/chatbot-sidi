@@ -2,7 +2,7 @@ import json
 
 from flask import Blueprint, Response, request, jsonify
 
-from services.vaga_service import create_vaga, listar_vagas, check_job_id
+from servico_vagas.services.vaga_service import create_vaga, listar_vagas, check_job_id
 
 vagas_bp = Blueprint('vagas', __name__, url_prefix='/vagas')
 

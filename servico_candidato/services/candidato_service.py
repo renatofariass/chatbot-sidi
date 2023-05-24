@@ -1,5 +1,5 @@
-from database.database import db
-from entities.candidato import Candidato
+from servico_candidato.database.database import db
+from servico_candidato.entities.candidato import Candidato
 
 
 # insere as informações do candidato no banco de dados

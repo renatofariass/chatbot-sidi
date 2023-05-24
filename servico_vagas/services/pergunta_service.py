@@ -1,6 +1,6 @@
-from database.database import db
-from entities.pergunta import Pergunta
-from entities.vaga import Vaga
+from servico_vagas.database.database import db
+from servico_vagas.entities.pergunta import Pergunta
+from servico_vagas.entities.vaga import Vaga
 
 
 def create_pergunta(pergunta, eliminatoria, job_id):

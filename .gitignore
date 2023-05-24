@@ -22,7 +22,6 @@ docs/_build/
 db.sqlite3
 *.sqlite3
 *.db
-*vagas
 *.db-shm
 *db-wal
 

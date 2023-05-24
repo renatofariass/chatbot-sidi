@@ -1,7 +1,7 @@
 from sqlalchemy.exc import IntegrityError
 
-from database.database import db
-from entities.vaga import Vaga
+from servico_vagas.database.database import db
+from servico_vagas.entities.vaga import Vaga
 
 
 # cria uma vaga
