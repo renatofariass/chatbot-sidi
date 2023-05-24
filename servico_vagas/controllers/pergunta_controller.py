@@ -21,4 +21,4 @@ def find_perguntas(job_id):
     try:
         return listar_perguntas(job_id)
     except Exception as e:
-        return jsonify({'mensagem': str(e)}), 500
+        return jsonify({'mensagem': str(e)}), 404
