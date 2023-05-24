@@ -8,7 +8,7 @@
  - pip install virtualenv
 
 4 - Crie uma virtual env chamada 'venv'
-- python virtualenv venv 
+- python -m virtualenv venv 
 - python3 -m virtualenv venv (linux)
 
 5 - ative a virtual env
@@ -22,12 +22,17 @@ $ virtualenv venv
 ```
 ATIVAR:
 ```
-$ venv/Scripts/activate
+$ cd venv
+$ cd Scripts
+$ activate
 ```
 DESATIVAR:
 ```
 $ deactivate
 ```
+Obs: Volte para a pasta principal após a ativação usando "cd .." até chegar no diretório 
+principal para instalar as depêndencias do requirements.txt
+
 
 ### Virtual ENV (Linux)
 
