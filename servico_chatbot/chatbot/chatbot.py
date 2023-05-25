@@ -2,20 +2,17 @@ from nltk.chat import Chat
 from nltk.chat.util import reflections
 
 padroes = [
-    (r"olá!|ola|oi|ei|eae|eai|!inicio|!ínicio",
-     ["Olá, seja bem vindo ao Chatbot SiDi. O que você quer fazer? Digite '!menu' para saber as opções."]),
-
-    (r"!menu", [
-        "!saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi | !perguntas - Prosseguir para as perguntas "
-        "| !ajuda - Como navegar pelo Chatbot SiDi"]),
+    (r"!menu",
+     ["!saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi "
+      "| !perguntas - Prosseguir para as perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
 
     (r"!saber",
-     ["!serve - Para que o Chatbot SiDi serve? | !funciona - Como funciona o ChatBot SiDi? !perguntas - Prosseguir para as "
-      "perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
+     ["!serve - Para que o Chatbot SiDi serve? | !funciona - Como funciona o ChatBot SiDi? | !perguntas - Prosseguir para as "
+         "perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
 
     (r"!ajuda",
-     ["Eu funciono através de comandos começados com '!'. Se você quiser voltar para o Ínicio digite '!inicio', se "
-      "quiser voltar para o Menu digite '!menu' e se quiser seguir para as perguntas digite '!perguntas'"]),
+     ["Eu funciono através de comandos começados com '!'. quiser voltar para o Menu digite '!menu' e "
+      "se quiser seguir para as perguntas digite '!perguntas'"]),
 
     (r"!sidi",
      ["Ótimo que você queira saber mais sobre a nossa empresa!! Segue o link: https://www.sidi.org.br/sobre-nos/"]),

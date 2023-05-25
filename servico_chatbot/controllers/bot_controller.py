@@ -13,6 +13,17 @@ indice_pergunta = 0
 respostas = {}
 job_id = ''
 
+@chat_bp.route('', methods=['OPTIONS'])
+def handle_options_request():
+    # Configurar e retornar os cabeçalhos de resposta adequados para o CORS
+    response_headers = {
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+    }
+    return ('', 204, response_headers)
+
+
 
 @chat_bp.route('', methods=['POST'])
 def chatbot_endpoint():

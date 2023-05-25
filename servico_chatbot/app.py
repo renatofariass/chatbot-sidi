@@ -12,9 +12,11 @@ sys.path.append(project_dir)
 
 from flask import Flask
 from servico_chatbot.controllers import bot_controller
+from flask_cors import CORS
 
 
 app_chatbot = Flask(__name__)
+CORS(app_chatbot, origins=['http://localhost:3000'])
 
 # Registra as rotas das vagas
 app_chatbot.register_blueprint(bot_controller.chat_bp)
