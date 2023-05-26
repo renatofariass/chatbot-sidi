@@ -1,3 +1,4 @@
+from sqlalchemy import UniqueConstraint
 from servico_candidato.database.database import db
 
 class Candidato(db.Model):
@@ -10,6 +11,10 @@ class Candidato(db.Model):
     formacao = db.Column(db.String(255), nullable=False)
     tecnologias = db.Column(db.String(255), nullable=False)
     job_id = db.Column(db.String(255), nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint('email', 'job_id', name='uq_email_job_id'),
+    )
 
     def to_dict(self):
         return {'nome': self.nome, 'email': self.email, 'linkedin': self.linkedin, 'github': self.github,
