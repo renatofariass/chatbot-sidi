@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import Logo from './Logo.png';
-import Bot from './bot.jpeg';
-import Send from './send.png';
-import ProfileImage from './profile.png';
+import Logo from './images/Logo.png';
+import Bot from './images/bot.png';
+import Send from './images/send.png';
+import ProfileImage from './images/usuario.png';
 import './App.css';
 
 function Chatbot() {
@@ -62,11 +62,15 @@ function Chatbot() {
 
   useEffect(() => {
     if (botResponse) {
+      const formattedResponse = botResponse.split(" | ").map((part, index) => (
+        <div key={index}>{part}</div>
+      ));
+      
       setMessages(prevMessages => [
         ...prevMessages,
         {
           id: prevMessages.length + 2,
-          text: `${botResponse}`,
+          text: formattedResponse,
           sender: 'bot',
         }
       ]);
