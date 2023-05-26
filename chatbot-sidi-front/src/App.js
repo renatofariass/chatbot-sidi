@@ -62,9 +62,26 @@ function Chatbot() {
 
   useEffect(() => {
     if (botResponse) {
-      const formattedResponse = botResponse.split(" | ").map((part, index) => (
-        <div key={index}>{part}</div>
-      ));
+      const regex = /(https?:\/\/[^\s]+)/g;
+      const parts = botResponse.split(" | ");
+    
+      const formattedResponse = parts.map((part, index) => {
+        if (part.match(regex)) {
+          const link = part.match(regex)[0];
+          const text = part.replace(link, '');
+    
+          return (
+            <div key={index}>
+              {text}
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                clique aqui!
+              </a>
+            </div>
+          );
+        } else {
+          return <div key={index}>{part}</div>;
+        }
+      });
       
       setMessages(prevMessages => [
         ...prevMessages,
