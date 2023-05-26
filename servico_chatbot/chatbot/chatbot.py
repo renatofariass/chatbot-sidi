@@ -3,7 +3,7 @@ from nltk.chat.util import reflections
 
 padroes = [
     (r"!menu",
-     ["!saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi "
+     ["comandos que você pode usar: | !saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi "
       "| !perguntas - Prosseguir para as perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
 
     (r"!saber",

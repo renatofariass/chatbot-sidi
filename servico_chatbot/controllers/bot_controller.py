@@ -55,6 +55,7 @@ def chatbot_endpoint():
 
     if resposta_candidato == '0':
         indice_pergunta = 0
+        contador = 0
         respostas.clear()
         perguntas.clear()
         return jsonify({'chatbot': 'Esse conhecimento é obrigatório para essa vaga. Tente outras vagas disponíveis!'})
@@ -69,13 +70,14 @@ def chatbot_endpoint():
             if contador == 0:
                 contador += 1
                 return jsonify({'chatbot': pergunta_atual})
-            if contador == 1:
+            if contador > 0 and contador < 3:
                 contador += 1
                 return jsonify({'chatbot': "Digite 0 ou 1, por favor. " + pergunta_atual})
-            if contador == 2:
+            if contador == 3:
                 indice_pergunta = 0
                 respostas.clear()
                 perguntas.clear()
+                contador = 0
                 return jsonify({'chatbot': "Você foi desclassificado por muitas tentativas erradas. :("})
 
     pergunta_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
@@ -86,12 +88,12 @@ def chatbot_endpoint():
         inscricao = inscricao_candidato(respostas, job_id)
         if inscricao is True:
             indice_pergunta = 0
-            respostas.clear()
-            perguntas.clear()
+            contador = 0
             return jsonify(
                 {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. :D'})
         else:
             indice_pergunta = 0
+            contador = 0
             respostas.clear()
             perguntas.clear()
             return jsonify(
