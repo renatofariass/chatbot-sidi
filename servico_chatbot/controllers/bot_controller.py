@@ -10,8 +10,10 @@ chat_bp = Blueprint('chat', __name__, url_prefix='/chatbot')
 
 perguntas = []
 indice_pergunta = 0
+contador = 0
 respostas = {}
 job_id = ''
+
 
 @chat_bp.route('', methods=['OPTIONS'])
 def handle_options_request():
@@ -24,13 +26,13 @@ def handle_options_request():
     return ('', 204, response_headers)
 
 
-
 @chat_bp.route('', methods=['POST'])
 def chatbot_endpoint():
     global perguntas
     global indice_pergunta
     global respostas
     global job_id
+    global contador
 
     candidato = request.get_json()
     resposta_candidato = candidato.get('resposta')
@@ -61,10 +63,20 @@ def chatbot_endpoint():
     pergunta_atual = perguntas[indice_pergunta]
 
     # Verifica se a pergunta atual é eliminatória
-    eliminatorias = questao_eliminatoria(job_id, pergunta_atual)
-    if eliminatorias is True:
+    eliminatoria = questao_eliminatoria(job_id, pergunta_atual)
+    if eliminatoria is True:
         if resposta_candidato not in ['0', '1']:
-            return jsonify({'chatbot': pergunta_atual})
+            if contador == 0:
+                contador += 1
+                return jsonify({'chatbot': pergunta_atual})
+            if contador == 1:
+                contador += 1
+                return jsonify({'chatbot': "Digite 0 ou 1, por favor. " + pergunta_atual})
+            if contador == 2:
+                indice_pergunta = 0
+                respostas.clear()
+                perguntas.clear()
+                return jsonify({'chatbot': "Você foi desclassificado por muitas tentativas erradas. :("})
 
     pergunta_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
     respostas[pergunta_anterior] = resposta_candidato  # salva a resposta do candidato pra cada pergunta
