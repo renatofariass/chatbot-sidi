@@ -3,7 +3,7 @@ from nltk.chat.util import reflections
 
 padroes = [
     (r"!menu",
-     ["comandos que você pode usar: \n !saber - Saber mais sobre o Chatbot SiDi \n !sidi - Saber mais sobre a SiDi "
+     ["Comandos que você pode usar: \n !saber - Saber mais sobre o Chatbot SiDi \n !sidi - Saber mais sobre a SiDi "
       "\n !perguntas - Prosseguir para as perguntas \n !ajuda - Como navegar pelo Chatbot SiDi \n !redes - Redes Sociais da SiDi"]),
 
     (r"!saber",
@@ -14,13 +14,14 @@ padroes = [
      ["Eu funciono através de comandos começados com '!'. Então para todos os comandos que quiser que eu execute coloque o '!' na frente da palavra."]),
     
     (r"!redes",
-     ["Siga a gente nas redes sociais para ficar por dentro das vagas :) \n "
-      "LinkedIn: https://www.linkedin.com/company/segueosidi/ \n "
-      "Instagram: https://www.instagram.com/segueosidi/ \n "
-      "Facebook: https://www.facebook.com/segueosidi"]),
+     ["Siga a gente nas redes sociais para ficar por dentro das vagas. 🥰 \n "
+      "LinkedIn: https://www.linkedin.com/company/segueosidi \n "
+      "Instagram: https://www.instagram.com/segueosidi \n "
+      "Facebook: https://www.facebook.com/segueosidi \n "
+      "Linktree: https://linktr.ee/segueosidi"]),
 
     (r"!sidi",
-     ["Ótimo que você queira saber mais sobre a nossa empresa!! Segue o link: https://www.sidi.org.br/sobre-nos/"]),
+     ["Ótimo que você queira saber mais sobre a nossa empresa!! Segue o link 👉 https://www.sidi.org.br/sobre-nos/"]),
 
     (r"!perguntas", ["Ok, você quer ir para as perguntas. Por favor, informe o seu código de vaga. Ex. 123"]),
 

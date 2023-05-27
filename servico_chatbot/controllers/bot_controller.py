@@ -48,7 +48,7 @@ def chatbot_endpoint():
             job_id = resposta_candidato  # Salva a resposta da primeira pergunta como job_id
             perguntas = obter_perguntas(job_id)
         if not perguntas:
-            resposta_personalizada = "Infelizmente, não entendi o que você quis dizer. Pode ser que você informou um " \
+            resposta_personalizada = "Infelizmente, não entendi o que você quis dizer 😕. Pode ser que você informou um " \
                                      "código de vaga errado ou um comando que eu não estou programado para entender. " \
                                      "Tente novamente."
             return jsonify({'chatbot': resposta_personalizada})
@@ -58,7 +58,7 @@ def chatbot_endpoint():
         contador = 0
         respostas.clear()
         perguntas.clear()
-        return jsonify({'chatbot': 'Esse conhecimento é obrigatório para essa vaga. Tente outras vagas disponíveis!'})
+        return jsonify({'chatbot': 'Infelizmente, Esse conhecimento é obrigatório para essa vaga 😕. Tente outras vagas disponíveis!'})
 
     # atualiza a pergunta atual
     pergunta_atual = perguntas[indice_pergunta]
@@ -72,13 +72,13 @@ def chatbot_endpoint():
                 return jsonify({'chatbot': pergunta_atual})
             if contador > 0 and contador < 2:
                 contador += 1
-                return jsonify({'chatbot': "Digite 0 ou 1, por favor."})
+                return jsonify({'chatbot': 'Digite 0 ou 1, por favor.'})
             if contador == 2:
                 indice_pergunta = 0
                 respostas.clear()
                 perguntas.clear()
                 contador = 0
-                return jsonify({'chatbot': "Você foi desclassificado por muitas tentativas erradas. :("})
+                return jsonify({'chatbot': 'Você foi desclassificado por muitas tentativas erradas. 😕'})
 
     pergunta_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
     respostas[pergunta_anterior] = resposta_candidato  # salva a resposta do candidato pra cada pergunta
@@ -90,14 +90,14 @@ def chatbot_endpoint():
             indice_pergunta = 0
             contador = 0
             return jsonify(
-                {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. :D'})
+                {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. 👋😃'})
         else:
             indice_pergunta = 0
             contador = 0
             respostas.clear()
             perguntas.clear()
             return jsonify(
-                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde'})
+                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde 😕'})
 
     pergunta_seguinte = perguntas[indice_pergunta]
     return jsonify({'chatbot': pergunta_seguinte})
