@@ -5,6 +5,15 @@ body {
   height: 100vh;
   background-color: #ffff;
 }
+.logo-container {
+  text-align: center;
+  margin-bottom: 2%;
+}
+
+.logo {
+  width: 260px; /* Ajuste o tamanho conforme necessário */
+}
+
 
 
 .chat-container {
@@ -16,6 +25,7 @@ body {
   background-color: rgb(255, 255, 255);
   height: 400px; /* Define a altura desejada para a área de conversa */
   overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+  margin-bottom: 3%;
 }
 
 .chat-image {
@@ -25,10 +35,22 @@ body {
   padding-bottom: 0.1%;
 }
 
-.chat-image img {
-  width: 37.5%;
+.chat-image .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-image .logo-container img {
+  width: 18%;
   height: auto;
   border-radius: 50%;
+}
+
+.chat-image .logo-container .chat-title {
+  color: #50177f;
+  margin-left: 10px;
+  font-size: 60px;
 }
 
 .message-container {
@@ -47,7 +69,7 @@ body {
 
 .user-message {
   background-color: #e6e6e6;
-  padding: 0.8%;
+  padding: 1.2%;
   border-radius: 5px;
   color: #000;
   max-width: 60%;
@@ -56,7 +78,7 @@ body {
 }
 .bot-message {
   background-color: #f1f1f1;
-  padding: 0.8%;
+  padding: 1.5%;
   border-radius: 5px;
   color: #000;
   max-width: 60%;
@@ -82,84 +104,84 @@ body {
   height: auto;
 }
 
-@media (max-width: 600px) {
-  .chat-image img {
-    width: 25%;
-    height: auto;
-  }
-
-  .message-container img {
-    width: 10%;
-    height: auto;
-  }
-
-  .user-message,
-  .bot-message {
-    max-width: 80%;
-  }
-}
-
 .user-input-container img:hover {
   background-color: #50177f;
 }
-
 
 /* Estilos para dispositivos com largura de tela menor ou igual a 600px */
 @media (max-width: 600px) {
   body {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+    align-items: center; /* Centralizar o conteúdo verticalmente */
+  }
+
+  .logo-container {
+    text-align: center;
+    margin-bottom: 2%;
+  }
+  
+  .logo {
+    width: 70%; /* Ajuste o tamanho conforme necessário */
+    margin-top: 17%;
+    justify-content: center; /* Centralizar o conteúdo horizontalmente */
+    align-items: center; /* Centralizar o conteúdo verticalmente */
+    margin-right: 8.5%;
   }
 
   .chat-container {
     width: 80%; /* Ajustar a largura para 80% */
-    height: 95vh; /* Ajustar a altura para 95vh */
+    height: 38vh; /* Ajustar a altura para 38vh */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Centralizar o conteúdo verticalmente */
+    margin-top: 6%;
   }
 
   .message-container img {
     width: 20%;
   }
 
-  .user-message,
+  .chat-image .logo-container img {
+    width: 24%;
+    height: auto;
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 46px;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 25%;
+    font-size: 1rem; /* Ajustar o tamanho do texto para 1rem */
+  }
+  
   .bot-message {
     max-width: 80%;
-    margin-left: 20%;
     font-size: 1rem; /* Ajustar o tamanho do texto para 1rem */
+    margin-right: 25%;
   }
 
   .user-input-container input {
     flex: 1;
-    padding: 10px;
+    padding: 2%;
+    height: 41%;
+    margin-top: 1.7%;
     border-radius: 5px;
     font-size: 1rem; /* Ajustar o tamanho do texto para 1rem */
   }
-}
 
-/* Estilos para dispositivos com largura de tela menor ou igual a 400px */
-@media (max-width: 400px) {
-  .chat-container {
-    padding: 1.5%;
-  }
-
-  .chat-image img {
-    width: 50%;
-  }
-
-  .message-container img {
-    width: 25%;
-  }
-
-  .user-message,
-  .bot-message {
-    max-width: 100%;
-    margin-left: 0;
-    font-size: 0.8rem; /* Ajustar o tamanho do texto para 0.8rem */
-  }
-
-  .user-input-container input {
-    flex: 1;
-    padding: 10px;
+  
+  .user-input-container img {
+    margin-left: 0.7%;
+    cursor: pointer;
     border-radius: 5px;
-    font-size: 0.8rem; /* Ajustar o tamanho do texto para 0.8rem */
+    padding: 3%;
+    width: 9%;
+    height: auto;
   }
 }

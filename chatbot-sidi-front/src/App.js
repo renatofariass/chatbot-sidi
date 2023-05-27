@@ -4,7 +4,9 @@ import Logo from './images/Logo.png';
 import Bot from './images/bot.png';
 import Send from './images/send.png';
 import ProfileImage from './images/usuario.png';
+import Chat from './images/Chat.png'
 import './App.css';
+
 
 function Chatbot() {
   const [userInput, setUserInput] = useState('');
@@ -63,7 +65,7 @@ function Chatbot() {
   useEffect(() => {
     if (botResponse) {
       const regex = /(https?:\/\/[^\s]+)/g;
-      const parts = botResponse.split(" | ");
+      const parts = botResponse.split("\n");
     
       const formattedResponse = parts.map((part, index) => {
         if (part.match(regex)) {
@@ -100,9 +102,12 @@ function Chatbot() {
 
   return (
     <div className="chat-container">
-      <div className="chat-image">
-        <img src={Logo} alt="logo" />
+    <div className="chat-image">
+      <div className="logo-container">
+        <img src={Chat} alt="logo" />
+        <h1 className="chat-title">ChatBot</h1>
       </div>
+    </div>
 
       {messages.map((message) => (
         <div
@@ -141,4 +146,16 @@ function Chatbot() {
   );
 }
 
-export default Chatbot;
+function App() {
+  return (
+    <div className="App">
+      <div className="logo-container">
+        <img src={Logo} alt="Logo" className="logo" />
+      </div>
+      <Chatbot />
+    </div>
+  );
+}
+
+export default App;
+
