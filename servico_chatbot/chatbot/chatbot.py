@@ -3,21 +3,21 @@ from nltk.chat.util import reflections
 
 padroes = [
     (r"!menu",
-     ["comandos que você pode usar: | !saber - Saber mais sobre o Chatbot SiDi | !sidi - Saber mais sobre a SiDi "
-      "| !perguntas - Prosseguir para as perguntas | !ajuda - Como navegar pelo Chatbot SiDi | !redes - Redes Sociais da SiDi"]),
+     ["comandos que você pode usar: \n !saber - Saber mais sobre o Chatbot SiDi \n !sidi - Saber mais sobre a SiDi "
+      "\n !perguntas - Prosseguir para as perguntas \n !ajuda - Como navegar pelo Chatbot SiDi \n !redes - Redes Sociais da SiDi"]),
 
     (r"!saber",
-     ["!serve - Para que o Chatbot SiDi serve? | !funciona - Como funciona o ChatBot SiDi? | !perguntas - Prosseguir para as "
-         "perguntas | !ajuda - Como navegar pelo Chatbot SiDi"]),
+     ["!serve - Para que o Chatbot SiDi serve? \n !funciona - Como funciona o ChatBot SiDi? \n !perguntas - Prosseguir para as "
+         "perguntas \n !ajuda - Como navegar pelo Chatbot SiDi"]),
 
     (r"!ajuda",
      ["Eu funciono através de comandos começados com '!'. quiser voltar para o Menu digite '!menu' e "
       "se quiser seguir para as perguntas digite '!perguntas'"]),
     
     (r"!redes",
-     ["Siga a gente nas redes sociais para ficar por dentro das vagas :) | "
-      "LinkedIn: https://www.linkedin.com/company/segueosidi/ | "
-      "Instagram: https://www.instagram.com/segueosidi/ | "
+     ["Siga a gente nas redes sociais para ficar por dentro das vagas :) \n "
+      "LinkedIn: https://www.linkedin.com/company/segueosidi/ \n "
+      "Instagram: https://www.instagram.com/segueosidi/ \n "
       "Facebook: https://www.facebook.com/segueosidi"]),
 
     (r"!sidi",
