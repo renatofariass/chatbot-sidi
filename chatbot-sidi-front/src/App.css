@@ -108,6 +108,16 @@ body {
   background-color: #50177f;
 }
 
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #50177f; /* Herda a cor do elemento pai */
+  transition: color 0.3s; /* Adiciona uma transição suave de cor */
+}
+
+a:hover {
+  color: #00D68D; /* Altera a cor para roxo ao passar o mouse */
+}
+
 /* Estilos para dispositivos com largura de tela menor ou igual a 600px */
 @media (max-width: 600px) {
   body {

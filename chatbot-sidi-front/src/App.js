@@ -13,7 +13,11 @@ function Chatbot() {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: 'Olá, seja bem-vindo ao Chatbot SiDi. O que você quer fazer? Digite "!menu" para saber as opções.',
+      text: (
+        <React.Fragment>
+          Olá, seja bem-vindo ao Chatbot SiDi 👋😊. O que você quer fazer? Digite "<strong>!menu</strong>" para saber as opções.
+        </React.Fragment>
+      ),
       sender: 'bot',
     },
   ]);
@@ -66,12 +70,29 @@ function Chatbot() {
     if (botResponse) {
       const regex = /(https?:\/\/[^\s]+)/g;
       const parts = botResponse.split("\n");
-    
+
       const formattedResponse = parts.map((part, index) => {
-        if (part.match(regex)) {
+        const commandsRegex = /(!\w+)/g;
+        const matches = part.match(commandsRegex);
+
+        if (matches) {
+          const commandElements = part.split(commandsRegex).map((element, elementIndex) => {
+            if (element.match(commandsRegex)) {
+              return <strong key={elementIndex}>{element}</strong>;
+            } else {
+              return element;
+            }
+          });
+
+          return (
+            <div key={index}>
+              {commandElements}
+            </div>
+          );
+        } else if (part.match(regex)) {
           const link = part.match(regex)[0];
           const text = part.replace(link, '');
-    
+
           return (
             <div key={index}>
               {text}
@@ -84,7 +105,8 @@ function Chatbot() {
           return <div key={index}>{part}</div>;
         }
       });
-      
+
+
       setMessages(prevMessages => [
         ...prevMessages,
         {
@@ -102,12 +124,12 @@ function Chatbot() {
 
   return (
     <div className="chat-container">
-    <div className="chat-image">
-      <div className="logo-container">
-        <img src={Chat} alt="logo" />
-        <h1 className="chat-title">ChatBot</h1>
+      <div className="chat-image">
+        <div className="logo-container">
+          <img src={Chat} alt="logo" />
+          <h1 className="chat-title">ChatBot</h1>
+        </div>
       </div>
-    </div>
 
       {messages.map((message) => (
         <div
