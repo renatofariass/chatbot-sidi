@@ -70,10 +70,10 @@ def chatbot_endpoint():
             if contador == 0:
                 contador += 1
                 return jsonify({'chatbot': pergunta_atual})
-            if contador > 0 and contador < 3:
+            if contador > 0 and contador < 2:
                 contador += 1
-                return jsonify({'chatbot': "Digite 0 ou 1, por favor. " + pergunta_atual})
-            if contador == 3:
+                return jsonify({'chatbot': "Digite 0 ou 1, por favor."})
+            if contador == 2:
                 indice_pergunta = 0
                 respostas.clear()
                 perguntas.clear()

@@ -11,8 +11,7 @@ padroes = [
          "perguntas \n !ajuda - Como navegar pelo Chatbot SiDi"]),
 
     (r"!ajuda",
-     ["Eu funciono através de comandos começados com '!'. quiser voltar para o Menu digite '!menu' e "
-      "se quiser seguir para as perguntas digite '!perguntas'"]),
+     ["Eu funciono através de comandos começados com '!'. Então para todos os comandos que quiser que eu execute coloque o '!' na frente da palavra."]),
     
     (r"!redes",
      ["Siga a gente nas redes sociais para ficar por dentro das vagas :) \n "
