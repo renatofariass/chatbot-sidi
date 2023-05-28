@@ -110,6 +110,8 @@ def chatbot_endpoint():
         if inscricao is True:
             indice_pergunta = 0
             contador = 0
+            respostas.clear()
+            perguntas.clear()
             return jsonify(
                 {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. 👋😃'})
         else:
