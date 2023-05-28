@@ -40,6 +40,10 @@ def chatbot_endpoint():
 
     for padrao, respostas_padrao in padroes:
         if re.match(padrao, resposta_candidato):
+            indice_pergunta = 0
+            contador = 0
+            respostas.clear()
+            perguntas = []
             nltk_resposta = random.choice(respostas_padrao)
             return jsonify({'chatbot': nltk_resposta})
 
@@ -53,12 +57,6 @@ def chatbot_endpoint():
                                      "Tente novamente."
             return jsonify({'chatbot': resposta_personalizada})
 
-    if resposta_candidato == '0':
-        indice_pergunta = 0
-        contador = 0
-        respostas.clear()
-        perguntas.clear()
-        return jsonify({'chatbot': 'Infelizmente, Esse conhecimento é obrigatório para essa vaga 😕. Tente outras vagas disponíveis!'})
 
     # atualiza a pergunta atual
     pergunta_atual = perguntas[indice_pergunta]
@@ -66,19 +64,35 @@ def chatbot_endpoint():
     # Verifica se a pergunta atual é eliminatória
     eliminatoria = questao_eliminatoria(job_id, pergunta_atual)
     if eliminatoria is True:
+        if indice_pergunta >= (int(len(perguntas)) - 1) and resposta_candidato == '0':
+            indice_pergunta = 0
+            contador = 0
+            respostas.clear()
+            perguntas.clear()
+            return jsonify({'chatbot': 'Sua candidatura foi cancelada. 😕'})
+        
         if resposta_candidato not in ['0', '1']:
             if contador == 0:
                 contador += 1
                 return jsonify({'chatbot': pergunta_atual})
+            
             if contador > 0 and contador < 2:
                 contador += 1
                 return jsonify({'chatbot': 'Digite 0 ou 1, por favor.'})
+            
             if contador == 2:
                 indice_pergunta = 0
                 respostas.clear()
                 perguntas.clear()
                 contador = 0
                 return jsonify({'chatbot': 'Você foi desclassificado por muitas tentativas erradas. 😕'})
+            
+        if resposta_candidato == '0':
+            indice_pergunta = 0
+            contador = 0
+            respostas.clear()
+            perguntas.clear()
+            return jsonify({'chatbot': 'Infelizmente, esse requisito é obrigatório para essa vaga 😕. Tente outras vagas disponíveis!'})
 
     pergunta_anterior = perguntas[indice_pergunta]  # Armazena a pergunta atual antes de atualizar o índice
     respostas[pergunta_anterior] = resposta_candidato  # salva a resposta do candidato pra cada pergunta
@@ -97,7 +111,7 @@ def chatbot_endpoint():
             respostas.clear()
             perguntas.clear()
             return jsonify(
-                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde 😕'})
+                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde. 😕'})
 
     pergunta_seguinte = perguntas[indice_pergunta]
     return jsonify({'chatbot': pergunta_seguinte})
