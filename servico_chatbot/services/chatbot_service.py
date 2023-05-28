@@ -41,7 +41,7 @@ def inscricao_candidato(respostas, job_id):
         response = requests.post(criar_candidato_url, json=data)
         if response.status_code == 200:
             return True
-        else:
+        elif response.status_code == 409:
             return False
-    except requests.exceptions.RequestException:
-        return False
+    except requests.exceptions.RequestException as e:
+        raise Exception("Ocorreu um erro ao fazer a inscricao: {}".format(str(e)))

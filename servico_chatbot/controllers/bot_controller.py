@@ -54,7 +54,7 @@ def chatbot_endpoint():
                 try:
                     perguntas = obter_perguntas(job_id)
                     if not perguntas:
-                        resposta_personalizada = "Você informou um código de vaga inválido. 😕"     
+                        resposta_personalizada = "Você informou um código de vaga inválido. Fale com um dos nossos recrutadores e tente novamente. 😕"     
                         return jsonify({'chatbot': resposta_personalizada})
                 except Exception as e:
                     resposta_personalizada = "Ocorreu um erro ao obter as perguntas 😕. Tente novamente mais tarde."
@@ -106,21 +106,29 @@ def chatbot_endpoint():
     indice_pergunta += 1  # atualiza o indice de pergunta
 
     if indice_pergunta >= len(perguntas):
-        inscricao = inscricao_candidato(respostas, job_id)
-        if inscricao is True:
+        try:
+            inscricao = inscricao_candidato(respostas, job_id)
+            if inscricao is True:
+                indice_pergunta = 0
+                contador = 0
+                respostas.clear()
+                perguntas.clear()
+                return jsonify(
+                    {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. 👋😃'})
+            else:
+                indice_pergunta = 0
+                contador = 0
+                respostas.clear()
+                perguntas.clear()
+                return jsonify(
+                    {'chatbot': 'Você já se candidatou nessa vaga. 🧐'})
+        except Exception:
             indice_pergunta = 0
             contador = 0
             respostas.clear()
             perguntas.clear()
             return jsonify(
-                {'chatbot': 'Sua candidatura a vaga foi registrada com sucesso. Obrigado por participar. 👋😃'})
-        else:
-            indice_pergunta = 0
-            contador = 0
-            respostas.clear()
-            perguntas.clear()
-            return jsonify(
-                {'chatbot': 'Infelizmente, tivemos um problema ao salvar sua candidatura. Tente novamente mais tarde. 😕'})
+                    {'chatbot': 'Ocorreu um erro ao salvar suas respostas. Tente novamente mais tarde. 😕'})
 
     pergunta_seguinte = perguntas[indice_pergunta]
     return jsonify({'chatbot': pergunta_seguinte})

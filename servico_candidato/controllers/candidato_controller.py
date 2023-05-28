@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from servico_candidato.entities.candidato import Candidato
 
 from servico_candidato.services.candidato_service import job_application
 
@@ -19,6 +20,10 @@ def salvar_respostas():
     tecnologias = respostas.get('Fale sobre quais tecnologias você possui conhecimentos.')
 
     try:
+        candidato = Candidato.query.filter_by(email=email, job_id=job_id).first()
+        if candidato is not None:
+            return jsonify({'mensagem': 'Candidato já se inscreveu nessa vaga.'}), 409
+
         job_application(nome=nome, email=email, linkedin=linkedin, github=github, formacao=formacao,
                         tecnologias=tecnologias, job_id=job_id)
         return jsonify({'mensagem': 'Respostas salvas com sucesso.'}), 200
