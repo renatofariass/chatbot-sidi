@@ -179,7 +179,7 @@ def chatbot_endpoint():
             perguntas.clear()
             return jsonify(
                 {
-                    "chatbot": "Ocorreu um erro ao salvar suas respostas. Tente novamente mais tarde. 😕"
+                    "chatbot": "Ocorreu um erro ao salvar sua candidatura. Tente novamente mais tarde. 😕"
                 }
             )
 
