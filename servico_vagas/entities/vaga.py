@@ -7,7 +7,7 @@ class Vaga(db.Model):
     job_id = db.Column(db.String(50), nullable=False, unique=True)
     descricao_vaga = db.Column(db.String(255), nullable=False)
     nivel_vaga = db.Column(db.String(20), nullable=False)
-    perguntas = db.relationship('Pergunta', backref='vaga', lazy=True)
+    perguntas = db.relationship('Pergunta', backref='vaga', lazy=True, cascade="all, delete-orphan")
 
     def to_dict(self):
         perguntas_serializadas = [pergunta.to_dict() for pergunta in self.perguntas]
