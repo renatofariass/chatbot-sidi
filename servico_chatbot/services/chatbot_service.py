@@ -26,8 +26,8 @@ def obter_perguntas(job_id):
             return perguntas
         else:
             return False
-    except requests.exceptions.RequestException:
-        return False
+    except Exception as e:
+        raise Exception("Erro ao obter perguntas: {}".format(str(e)))
 
 
 def inscricao_candidato(respostas, job_id):

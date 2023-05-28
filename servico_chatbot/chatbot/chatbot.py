@@ -33,7 +33,7 @@ padroes = [
 
     (r"(.*)(candidatar|inscrição|vaga)(.*)", ["Por favor, informe o seu código de vaga para prosseguir."]),
 
-    (r"(sair|tchau|até mais|ate mais|até logo|ate logo)", ["Até mais!", "Tchau, tchau!"])
+    (r"(!sair)", ["Tchau, tchau! 👋😃"])
 ]
 
 chatbot = Chat(padroes, reflections)

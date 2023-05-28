@@ -50,12 +50,19 @@ def chatbot_endpoint():
     if not perguntas:
         if resposta_candidato is not None:
             job_id = resposta_candidato  # Salva a resposta da primeira pergunta como job_id
-            perguntas = obter_perguntas(job_id)
-        if not perguntas:
-            resposta_personalizada = "Infelizmente, não entendi o que você quis dizer 😕. Pode ser que você informou um " \
-                                     "código de vaga errado ou um comando que eu não estou programado para entender. " \
-                                     "Tente novamente."
-            return jsonify({'chatbot': resposta_personalizada})
+            if any(char.isdigit() for char in resposta_candidato):
+                try:
+                    perguntas = obter_perguntas(job_id)
+                    if not perguntas:
+                        resposta_personalizada = "Você informou um código de vaga inválido. 😕"     
+                        return jsonify({'chatbot': resposta_personalizada})
+                except Exception as e:
+                    resposta_personalizada = "Ocorreu um erro ao obter as perguntas 😕. Tente novamente mais tarde."
+                    return jsonify({'chatbot': resposta_personalizada})
+            else:
+                resposta_personalizada = "Desculpe, não estou programado para entender o que você digitou. Use os comandos, por favor. 😕"
+                return jsonify({'chatbot': resposta_personalizada})
+
 
 
     # atualiza a pergunta atual
