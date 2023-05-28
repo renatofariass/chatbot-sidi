@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Logo from './images/Logo.png';
-import Bot from './images/bot.png';
 import Send from './images/send.png';
-import ProfileImage from './images/usuario.png';
+import ProfileImage from './images/profile.png';
 import Chat from './images/Chat.png'
 import './App.css';
 
@@ -15,7 +14,7 @@ function Chatbot() {
       id: 1,
       text: (
         <React.Fragment>
-          Olá, seja bem-vindo ao Chatbot SiDi 👋😊. O que você quer fazer? Digite "<strong>!menu</strong>" para saber as opções.
+          Olá, seja bem-vindo ao Chatbot SiDi 👋😊. O que você quer fazer? Digite "<span className='bold'>!menu</span>" para saber as opções.
         </React.Fragment>
       ),
       sender: 'bot',
@@ -70,20 +69,20 @@ function Chatbot() {
     if (botResponse) {
       const regex = /(https?:\/\/[^\s]+)/g;
       const parts = botResponse.split("\n");
-
+  
       const formattedResponse = parts.map((part, index) => {
-        const commandsRegex = /(!\w+)/g;
+        const commandsRegex = /(!\w+|:\s*$)/g;
         const matches = part.match(commandsRegex);
-
+  
         if (matches) {
           const commandElements = part.split(commandsRegex).map((element, elementIndex) => {
             if (element.match(commandsRegex)) {
-              return <strong key={elementIndex}>{element}</strong>;
+              return <span className='bold' key={elementIndex}>{element}</span>;
             } else {
               return element;
             }
           });
-
+  
           return (
             <div key={index}>
               {commandElements}
@@ -92,10 +91,10 @@ function Chatbot() {
         } else if (part.match(regex)) {
           const link = part.match(regex)[0];
           const text = part.replace(link, '');
-
+  
           return (
             <div key={index}>
-              {text}
+              <span className='bold'>{text}</span>
               <a href={link} target="_blank" rel="noopener noreferrer">
                 clique aqui!
               </a>
@@ -136,7 +135,7 @@ function Chatbot() {
           key={message.id}
           className={`message-container ${message.sender}-message`}
         >
-          <img src={message.sender === 'user' ? message.image : Bot} alt="Chatbot Avatar" />
+          <img src={message.sender === 'user' ? message.image : Chat} alt="Chatbot Avatar" />
           <p>{message.text}</p>
         </div>
       ))}
