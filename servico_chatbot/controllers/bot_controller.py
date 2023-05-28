@@ -169,7 +169,7 @@ def chatbot_endpoint():
                 contador_eliminatoria = 0
                 respostas.clear()
                 perguntas.clear()
-                return jsonify({"chatbot": "Você já se candidatou nessa vaga. 🧐"})
+                return jsonify({"chatbot": "Você já se candidatou nessa vaga. Tente outras. 🧐"})
             
         except Exception:
             indice_pergunta = 0
