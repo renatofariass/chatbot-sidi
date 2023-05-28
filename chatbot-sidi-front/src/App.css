@@ -11,7 +11,7 @@ body {
 }
 
 .logo {
-  width: 230px; /* Ajuste o tamanho conforme necessário */
+  width: 240px;
 }
 
 .chat-container {
@@ -81,7 +81,7 @@ body {
   font-size: 16px; /* Ajustar o tamanho do texto para 1rem */
   margin-right: 25%;
   padding-left: 1.2%;
-  padding-right: 1%;
+  padding-right: 1.2%;
   background-color: #f1f1f1;
 
 
