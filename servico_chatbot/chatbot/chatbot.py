@@ -12,7 +12,7 @@ padroes = [
     (r"!ajuda|!!ajuda",
      ["Eu funciono através de comandos começados com '!'. Então para todos os comandos que quiser que eu execute coloque o '!' na frente da palavra."]),
     
-    (r"!sidi|!!sidi",
+    (r"!sidi|!!sidi|!instagram|!linkedin|!facebook|!linktree|!redes|!vagas",
      ["Siga a gente nas redes sociais para ficar por dentro das vagas. 🥰 \n "
       "LinkedIn: https://www.linkedin.com/company/segueosidi \n "
       "Instagram: https://www.instagram.com/segueosidi \n "
@@ -31,7 +31,7 @@ padroes = [
 
     (r"(.*)seu nome(.*)|(.*)teu nome(.*)", ["Meu nome é ChatBot Sidi"]),
 
-    (r"(.*)(candidatar|inscrição|vaga)(.*)", ["Por favor, informe o seu código de vaga para prosseguir. Ex. 123"]),
+    (r"(.*)(candidatar|inscrição)(.*)", ["Por favor, informe o seu código de vaga para prosseguir. Ex. 123"]),
 
     (r"(!sair)", ["Tchau, tchau! 👋😃"])
 ]
