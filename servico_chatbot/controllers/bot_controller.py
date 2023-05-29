@@ -141,7 +141,8 @@ def chatbot_endpoint():
             perguntas.clear()
             return jsonify(
                 {
-                    "chatbot": "Infelizmente, esse requisito é obrigatório para essa vaga 😕. Tente outras vagas disponíveis!"
+                    "chatbot": "Infelizmente, esse requisito é obrigatório para essa vaga 😕. Tente outras vagas disponíveis! 👇 \n " +
+                    "Vagas disponíveis: https://sidi.gupy.io/"
                 }
             )
 
