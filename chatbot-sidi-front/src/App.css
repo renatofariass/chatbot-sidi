@@ -15,7 +15,7 @@ body {
 }
 
 .chat-container {
-  border: 4px solid #00D68E;
+  border: 4px solid #4FD590;
   border-radius: 5px;
   padding: 2%;
   font-size: 16px;
@@ -87,8 +87,8 @@ body {
 
   animation-name: slideIn;
   animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
-  backface-visibility: hidden; /* Evita o "piscar" durante a animação */
+  animation-timing-function: linear;
+  backface-visibility: hidden; 
 }
 
 @keyframes slideIn {
@@ -137,7 +137,7 @@ a {
 }
 
 a:hover {
-  color: #00D68E;
+  color: #00ca62;
 }
 
 .bold {
