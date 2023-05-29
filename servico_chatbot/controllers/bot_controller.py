@@ -69,7 +69,7 @@ def chatbot_endpoint():
                     resposta_personalizada = "Ocorreu um erro ao obter as perguntas 😕. Tente novamente mais tarde."
                     return jsonify({"chatbot": resposta_personalizada})
             else:
-                resposta_personalizada = "Desculpe, não estou programado para entender o que você digitou. Use os comandos, por favor. 😕"
+                resposta_personalizada = "Desculpe, não estou programado para entender o que você digitou. Use os comandos indicados, por favor. 😕"
                 return jsonify({"chatbot": resposta_personalizada})
 
     # atualiza a pergunta atual

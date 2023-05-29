@@ -3,8 +3,12 @@ from nltk.chat.util import reflections
 
 padroes = [
     (r"!menu|!!menu",
-     ["Comandos que você pode usar: \n !saber - Saber mais sobre o Chatbot SiDi \n !sidi - Redes sociais da SiDi "
-      "\n !perguntas - Prosseguir para as perguntas \n !ajuda - Como navegar pelo Chatbot SiDi \n "]),
+     ["Comandos que você pode usar: \n !saber - Saber mais sobre o Chatbot SiDi. \n !sidi - Redes sociais da SiDi. \n"
+      "!pergunta - Prosseguir para as perguntas da vaga. \n !ajuda - Como navegar pelo Chatbot SiDi. \n !vaga - Vagas disponíveis aqui na SiDi. \n "
+      "!sair - Encerrar a sessão."]),
+    
+    (r"!vaga|!vagas|!!vaga|!!vagas",
+     ["Encontre a vaga que mais combina com o seu perfil. 🎯 \n Vagas disponíveis: https://sidi.gupy.io/"]),
 
     (r"!saber|!!saber",
      ["!serve - Para que o Chatbot SiDi serve? \n !funciona - Como funciona o ChatBot SiDi?"]),
@@ -12,7 +16,7 @@ padroes = [
     (r"!ajuda|!!ajuda",
      ["Eu funciono através de comandos começados com '!'. Então para todos os comandos que quiser que eu execute coloque o '!' na frente da palavra."]),
     
-    (r"!sidi|!!sidi|!instagram|!linkedin|!facebook|!linktree|!redes|!vagas",
+    (r"!sidi|!!sidi|!instagram|!linkedin|!facebook|!linktree|!redes",
      ["Siga a gente nas redes sociais para ficar por dentro das vagas. 🥰 \n "
       "LinkedIn: https://www.linkedin.com/company/segueosidi \n "
       "Instagram: https://www.instagram.com/segueosidi \n "
@@ -33,7 +37,7 @@ padroes = [
 
     (r"(.*)(candidatar|inscrição)(.*)", ["Por favor, informe o seu código de vaga para prosseguir. Ex. 123"]),
 
-    (r"(!sair)", ["Tchau, tchau! 👋😃"])
+    (r"(!sair|!sai)", ["Tchau, tchau! 👋🙂"])
 ]
 
 chatbot = Chat(padroes, reflections)
