@@ -132,7 +132,7 @@ body {
 
 a {
   text-decoration: none; 
-  color: #46177D; /* Remove o sublinhado */
+  color: #50177F; /* Remove o sublinhado */
   transition: color 0.5s; /* Adiciona uma transição suave de cor */
 }
 

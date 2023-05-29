@@ -118,8 +118,25 @@ function Chatbot() {
   }, [botResponse]);
 
   useLayoutEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      ::-webkit-scrollbar {
+        width: 8px; /* Largura da barra de rolagem */
+      }
+      
+      ::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Cor de fundo da barra de rolagem */
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background-color: #50177F; /* Cor do "polegar" da barra de rolagem */
+      }
+    `;
+    document.head.appendChild(style);
+  
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+  
 
   return (
     <div className="chat-container">
