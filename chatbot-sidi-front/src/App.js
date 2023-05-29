@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import axios from 'axios';
 import Logo from './images/Logo.png';
 import Send from './images/send.png';
@@ -65,7 +65,7 @@ function Chatbot() {
     setButtonHovered(false);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (botResponse) {
       const regex = /(https?:\/\/[^\s]+)/g;
       const parts = botResponse.split("\n");
@@ -117,7 +117,7 @@ function Chatbot() {
     }
   }, [botResponse]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
