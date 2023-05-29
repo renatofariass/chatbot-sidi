@@ -87,7 +87,7 @@ body {
 
   animation-name: slideIn;
   animation-duration: 0.4s;
-  animation-timing-function: linear;
+  animation-timing-function: ease;
   backface-visibility: hidden; 
 }
 
