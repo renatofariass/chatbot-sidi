@@ -14,8 +14,8 @@ def salvar_respostas():
 
     nome = respostas.get('Qual seu nome?')
     email = respostas.get('Qual é o seu email?')
-    linkedin = respostas.get('Qual o seu linkedin?')
-    github = respostas.get('Qual o seu github?')
+    linkedin = respostas.get('Qual o seu linkedin? Ex: linkedin.com/in/chatbotsidi')
+    github = respostas.get('Qual o seu github? Ex: github.com/chatbotsidi')
     formacao = respostas.get('Qual sua formação?')
     tecnologias = respostas.get('Fale sobre quais tecnologias você possui conhecimentos.')
 

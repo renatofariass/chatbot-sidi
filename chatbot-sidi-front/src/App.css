@@ -69,15 +69,31 @@ body {
 .user-message {
   background-color: #e6e6e6;
   padding: 1.2%;
-  border-radius: 5px;
+  border-radius: 30px;
   color: #000;
   max-width: 60%;
   margin-left: 40%;
   font-size: 16px;
+  animation-name: slideUser;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  
+}
+
+@keyframes slideUser {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .bot-message {
   max-width: 100%;
+  border-radius: 30px;
   font-size: 16px; /* Ajustar o tamanho do texto para 1rem */
   margin-right: 25%;
   padding-left: 1.2%;
@@ -85,13 +101,12 @@ body {
   background-color: #f1f1f1;
 
 
-  animation-name: slideIn;
-  animation-duration: 0.4s;
+  animation-name: slideBot;
+  animation-duration: 0.5s;
   animation-timing-function: ease;
-  backface-visibility: hidden; 
 }
 
-@keyframes slideIn {
+@keyframes slideBot {
   0% {
     opacity: 0;
     transform: translateX(-100%);
