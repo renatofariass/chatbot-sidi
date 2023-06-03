@@ -4,6 +4,7 @@ import Logo from './images/Logo.png';
 import Send from './images/send.png';
 import ProfileImage from './images/profile.png';
 import Chat from './images/Chat.png'
+import HoverImage from './images/hover.gif';
 import './App.css';
 
 
@@ -170,10 +171,33 @@ function Chatbot() {
 }
 
 function App() {
+  const [imageHovered, setImageHovered] = useState(false); // Estado para controlar se o mouse está passando por cima da imagem
+
+  const handleImageMouseEnter = () => {
+    setImageHovered(true);
+  };
+
+  const handleImageMouseLeave = () => {
+    setImageHovered(false);
+  };
+
   return (
     <div className="App">
       <div className="logo-container">
-        <img src={Logo} alt="Logo" className="logo" />
+        <img
+          src={Logo}
+          alt="Logo"
+          className="logo"
+          onMouseEnter={handleImageMouseEnter}
+          onMouseLeave={handleImageMouseLeave}
+        />
+        {imageHovered && (
+          <img
+            src={HoverImage}
+            alt="hover"
+            className="hover-image"
+          />
+        )}
       </div>
       <Chatbot />
     </div>
