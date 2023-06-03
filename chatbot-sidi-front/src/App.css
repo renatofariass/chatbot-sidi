@@ -2,7 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 96vh;
+  min-height: 100vh;
   background-color: #FEFEFE;
 }
 
@@ -19,11 +19,11 @@ body {
   border-radius: 5px;
   padding: 2%;
   font-size: 16px;
-  max-width: 800px; /*  Definindo a largura máxima em uma porcentagem relativa*/
+  max-width: 800px;
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
-  height: 370px; /* Define a altura desejada para a área de conversa */
-  overflow-y: scroll; /* Adiciona a barra de rolagem vertical */
+  height: 370px;
+  overflow-y: scroll;
   margin-bottom: 5%;
 }
 
@@ -38,6 +38,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0px;
 }
 
 .chat-image .logo-container img {
@@ -77,7 +78,6 @@ body {
   animation-name: slideUser;
   animation-duration: 0.5s;
   animation-timing-function: ease;
-  
 }
 
 @keyframes slideUser {
@@ -94,13 +94,11 @@ body {
 .bot-message {
   max-width: 100%;
   border-radius: 30px;
-  font-size: 16px; /* Ajustar o tamanho do texto para 1rem */
+  font-size: 16px;
   margin-right: 25%;
   padding-left: 1.2%;
   padding-right: 1.2%;
   background-color: #f1f1f1;
-
-
   animation-name: slideBot;
   animation-duration: 0.5s;
   animation-timing-function: ease;
@@ -127,7 +125,7 @@ body {
   flex: 1;
   padding: 1%;
   border-radius: 100px;
-  font-size: 16px; 
+  font-size: 16px;
   padding-left: 20px;
   margin-left: -1%;
   border: black solid 2px;
@@ -147,9 +145,9 @@ body {
 }
 
 a {
-  text-decoration: none; 
-  color: #50177F; /* Remove o sublinhado */
-  transition: color 0.5s; /* Adiciona uma transição suave de cor */
+  text-decoration: none;
+  color: #50177F;
+  transition: color 0.5s;
 }
 
 a:hover {
@@ -158,4 +156,968 @@ a:hover {
 
 .bold {
   font-weight: 600;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+.logo {
+  width: 250px; /* Altere o tamanho conforme necessário */
+  margin-right: 20px; /* Altere a distância conforme necessário */
+}
+
+.hover-image {
+  width: 85px; 
+  display: none;
+  position: absolute;
+  top: 0;
+  margin-top: 2.5%;
+  left: calc(60% + 18px); /* Distância entre as imagens */
+}
+
+.logo-container:hover .hover-image {
+  display: block;
+}
+
+/* Media queries para dispositivos móveis */
+
+@media screen and (max-width: 414px) and (min-height: 840px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(79vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 415px) and (max-height: 823px){ 
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(78vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 60px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 7%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 460px) and (max-height: 850px){ 
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(78vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 60px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 7%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 414px) and (max-height: 790px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(78vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 60px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 7%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 415px) and (max-height: 736px){ 
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(76vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 60px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 7%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 414px) and (max-height: 650px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(74vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 60px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 7%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 379px) and (min-height: 800px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(79vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 379px) and (max-height: 667px) {
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(75vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 360px) and (max-height: 640px) {
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(75vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 360px) and (max-height: 600px) {
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(78vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 379px) and (max-height: 515px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(67vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 570px){
+  body {
+    display: initial;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh; /* Define a altura do corpo para ocupar 100% da altura da tela */
+    background-color: initial;
+    overflow: hidden; /* Remove a barra de rolagem */
+  }
+
+  .logo {
+    margin-top: 6%;
+    width: 150px;
+  }
+
+  .chat-container {
+    max-height: calc(69vh - 30px); /* Ajusta a altura do contêiner principal, descontando a altura do cabeçalho */
+    padding: 1%;
+    height: 100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    position: relative;
+    border: initial;
+    overflow-y: scroll; /* Adiciona a barra de rolagem apenas quando necessário */
+  }
+  
+  .chat-image .logo-container .chat-title {
+    font-size: 40px;
+  }
+
+  .message-container img {
+    width: 10%;
+  }
+
+  .user-message {
+    max-width: 80%;
+    margin-left: 20%;
+    font-size: 14px;
+  }
+
+  .bot-message {
+    margin-right: 10%;
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .user-input-container {
+    position: fixed; /* Adicionado */
+    bottom: 0; /* Adicionado */
+    left: 0; /* Adicionado */
+    width: 95%; /* Adicionado */
+    display: flex; /* Adicionado */
+    align-items: center; /* Adicionado */
+    padding: 2%; /* Adicionado */
+  }
+
+  .user-input-container input {
+    padding: 2%;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .user-input-container img {
+    width: 6%;
+    padding: 2%;
+  }
+
+  .hover-image {
+    width: 55px; 
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-top: 9%;
+    left: calc(59% + 18px); /* Distância entre as imagens */
+  }
 }
