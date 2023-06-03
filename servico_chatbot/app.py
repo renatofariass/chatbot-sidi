@@ -23,4 +23,4 @@ app_chatbot.register_blueprint(bot_controller.chat_bp)
 
 
 if __name__ == '__main__':
-    app_chatbot.run(port=5002)
+    app_chatbot.run(host='0.0.0.0', port=5002)

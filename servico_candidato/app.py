@@ -29,4 +29,4 @@ with app_candidato.app_context():
 app_candidato.register_blueprint(candidato_controller.candidato_bp)
 
 if __name__ == '__main__':
-    app_candidato.run(port=5001)
+    app_candidato.run(host='0.0.0.0', port=5001)
